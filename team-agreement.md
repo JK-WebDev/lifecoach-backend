@@ -84,3 +84,44 @@ Make sure we have consensus before moving on
 ### How will you ensure that you are creating a safe environment where everyone feels comfortable speaking up?
 
 Check in with all team members before moving on
+
+---
+## Work Plan
+
+### How you will identify tasks, assign tasks, know when they are complete, and manage work in general?
+- Create tasks before implementing any new feature
+- Discuss and agree
+- Merge PRs, delete merged branches, and move task to completed status
+
+### What project management tool will be used?
+Trello
+
+---
+## Git Process
+
+### What components of your project will live on GitHub?
+- Team agreement
+- Any code not containing secrets
+- Media and assets
+
+### How will you share the repository with your teammates?
+Everyone will be added as admins
+
+### What is your Git flow?
+1. Create PR on new feature branch to merge into `dev` branch
+2. Address any concerns or corrections from PR
+3. After approval, verify all checks are passing
+4. Merge into `dev` for live testing
+5. After verifying `dev` branch works as expected, repeat steps 1-4 into `main` branch
+
+### Will you be using a PR review workflow? If so, consider:
+#### How many people must review a PR?
+One
+
+#### Who merges PRs?
+Approver will merge unless otherwise communicated
+
+#### How often will you merge?
+Ideally would include changes encompassing feature, but will try to limit PRs to 100-300 lines of changed code
+#### How will you communicate that it’s time to merge?
+Will post a link to the PR in Slack and will indicate if approved or if there are requests for changes
