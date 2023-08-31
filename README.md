@@ -1,6 +1,6 @@
 # Lifecoach - Backend
 
-Version 1.0.0
+Version 1.2.0
 
 ## Team Members
 
@@ -16,23 +16,32 @@ Uncle Jimmy’s Life Coaching. Get life advice from your AI-powered Uncle Jimmy.
 ## API
 
 ## Database schema
+### Task
+  title: String,
+  isCompleted: Boolean,
+  notes: Array,
+  owner: String
 
 ## Dependencies
+- openai npm package
+- mongoose
 
 ## Change Log
 
 - 1.0.0 - Initial commit
+- 1.1.0 - Adds OpenAI query route and initial Auth0 middleware
+- 1.2.0 - Adds "get all tasks" for auth user, and create task route
 
 ### Feature Planning and Estimates
 
 ```
-Name of feature: ________________________________
+Name of feature: Add get all, and create task routes
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 4
 
-Start time: _____
+Start time: 2
 
-Finish time: _____
+Finish time: 4:22
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2:22
 ```
