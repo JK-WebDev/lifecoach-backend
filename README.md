@@ -4,10 +4,11 @@ Version 1.0.0
 
 ## Team Members
 
-* Josh Easley
-* Kyle Cordell
+- Josh Easley
+- Kyle Cordell
 
 ## Overview
+
 Uncle Jimmy’s Life Coaching. Get life advice from your AI-powered Uncle Jimmy. Advice/tasks given can be saved to your “Life Improvement List”. Snark and sarcasm included at no additional charge.
 
 ## Install Instructions
@@ -19,7 +20,9 @@ Uncle Jimmy’s Life Coaching. Get life advice from your AI-powered Uncle Jimmy.
 ## Dependencies
 
 ## Change Log
- - 1.0.0 - Initial commit
+
+- 1.0.0 - Initial commit
+
 ### Feature Planning and Estimates
 
 ```
