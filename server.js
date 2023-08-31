@@ -3,6 +3,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const { queryAi } = require("./routes/aiHandler");
 
 const app = express();
 app.use(cors());
@@ -19,8 +20,10 @@ db.once("open", () => console.log("Mongoose connected!"));
 
 
 app.get("/", (req, res, next) => {
-  res.status(200).send("Default route working.")
+    res.status(200).send("Default route working.")
 });
+
+app.post("/query", queryAi);
 
 app.get("*", (req, res, next) =>
   res.status(404).send(`Resource not found :'(`)
