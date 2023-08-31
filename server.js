@@ -5,6 +5,9 @@ const express = require("express");
 const cors = require("cors");
 const { queryAi } = require("./routes/aiHandler");
 
+const verifyUser = require('./middleware/Authorize');
+
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -18,6 +21,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Mongoose connection error!"));
 db.once("open", () => console.log("Mongoose connected!"));
 
+app.use(verifyUser);
 
 app.get("/", (req, res, next) => {
     res.status(200).send("Default route working.")
