@@ -20,6 +20,12 @@ taskHandler.createOrUpdateTask = async function (req, res, next) {
     .catch((err) => next(err));
 };
 
-
+bookHandler.deleteTask = async function (req, res, next) {
+    const { id } = req.params;
+  
+    Task.findOneAndDelete({ _id: id, owner: req.user.email })
+      .then((data) => res.status(204).send())
+      .catch((error) => next(error));
+  };
 
 module.exports = taskHandler;
