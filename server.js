@@ -27,7 +27,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Mongoose connection error!"));
 db.once("open", () => console.log("Mongoose connected!"));
 
-//app.use(verifyUser);
+app.use(verifyUser);
 
 app.get("/", (req, res, next) => {
   res.status(200).send("Default route working.");
@@ -38,7 +38,7 @@ app.post("/query", queryAi);
 app.get("/task", getTasks);
 app.post("/task", createOrUpdateTask);
 app.patch("/task", createOrUpdateTask);
-app.delete("/task", deleteTask);
+app.delete("/task/:id", deleteTask);
 
 app.get("*", (req, res, next) =>
   res.status(404).send(`Resource not found :'(`)
