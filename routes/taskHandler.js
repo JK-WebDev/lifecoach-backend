@@ -1,5 +1,5 @@
 'use strict'
-
+const mongoose = require('mongoose');
 const Task = require('../models/Task');
 
 const taskHandler = {};
@@ -11,8 +11,10 @@ taskHandler.getTasks = function(req, res, next) {
 };
 
 taskHandler.createOrUpdateTask = async function (req, res, next) {
+
   Task.findOneAndUpdate(
-    { _id: id },
+    req.body.id ? { _id: req.body.id } 
+                : { _id: new mongoose.mongo.ObjectId() },
     { $set: { ...req.body, owner: req.user.email } },
     { upsert: true, new: true }
   )

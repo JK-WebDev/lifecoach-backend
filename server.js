@@ -27,7 +27,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Mongoose connection error!"));
 db.once("open", () => console.log("Mongoose connected!"));
 
-app.use(verifyUser);
+//app.use(verifyUser);
 
 app.get("/", (req, res, next) => {
   res.status(200).send("Default route working.");
