@@ -20,7 +20,7 @@ taskHandler.createOrUpdateTask = async function (req, res, next) {
     .catch((err) => next(err));
 };
 
-bookHandler.deleteTask = async function (req, res, next) {
+taskHandler.deleteTask = async function (req, res, next) {
     const { id } = req.params;
   
     Task.findOneAndDelete({ _id: id, owner: req.user.email })
