@@ -13,8 +13,7 @@ taskHandler.getTasks = function(req, res, next) {
 taskHandler.createOrUpdateTask = async function (req, res, next) {
 
   Task.findOneAndUpdate(
-    req.body.id ? { _id: req.body.id } 
-                : { _id: new mongoose.mongo.ObjectId() },
+    { _id: req.params.id ?? new mongoose.Types.ObjectId(), owner: req.user.email },
     { $set: { ...req.body, owner: req.user.email } },
     { upsert: true, new: true }
   )

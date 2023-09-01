@@ -37,7 +37,7 @@ app.post("/query", queryAi);
 
 app.get("/task", getTasks);
 app.post("/task", createOrUpdateTask);
-app.patch("/task", createOrUpdateTask);
+app.patch("/task/:id", createOrUpdateTask);
 app.delete("/task/:id", deleteTask);
 
 app.get("*", (req, res, next) =>
