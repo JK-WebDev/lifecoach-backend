@@ -10,16 +10,16 @@ taskHandler.getTasks = function(req, res, next) {
         .catch((err) => next(err));
 };
 
-taskHandler.createTask = async function (req, res, next) {
-  const { title, isCompleted, notes } = req.body;
-
+taskHandler.createOrUpdateTask = async function (req, res, next) {
   Task.findOneAndUpdate(
-    { title: title },
-    { $set: { isCompleted: isCompleted, notes: notes, owner: req.user.email } },
+    { _id: id },
+    { $set: { ...req.body, owner: req.user.email } },
     { upsert: true, new: true }
   )
     .then((doc) => res.status(201).send(doc))
     .catch((err) => next(err));
 };
+
+
 
 module.exports = taskHandler;
