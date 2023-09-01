@@ -26,9 +26,9 @@ The constraints for the strings are as follows:
 - The string length should be a maximum of 300 characters.
 
 "task"
-- A non-conversational text string given as an actionable task I should take written in a friendly and professional tone. 
+- A non-conversational, concise text string given as an actionable task I should take written in a friendly and professional tone. 
 - The task should relate directly to the contents of "message". 
-- The string length should be a minimum of 50 characters and a maximum of 120 characters.
+- The string length should be a minimum of 50 characters and a maximum of 120 characters and be no more than one sentance.
 
 Here is the prompt:
 `;
