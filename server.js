@@ -4,7 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { queryAi } = require("./routes/aiHandler");
-const { getTasks, createTask } = require("./routes/taskHandler");
+const { getTasks, createOrUpdateTask, deleteTask } = require("./routes/taskHandler");
 
 const verifyUser = require("./middleware/Authorize");
 
@@ -36,11 +36,14 @@ app.get("/", (req, res, next) => {
 app.post("/query", queryAi);
 
 app.get("/task", getTasks);
-app.post("/task", createTask);
+app.post("/task", createOrUpdateTask);
+app.patch("/task/:id", createOrUpdateTask);
+app.delete("/task/:id", deleteTask);
 
 app.get("*", (req, res, next) =>
   res.status(404).send(`Resource not found :'(`)
 );
+
 app.use((error, request, response, next) => {
   console.error(error);
   response.status(500).send(error.message);
