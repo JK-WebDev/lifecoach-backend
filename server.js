@@ -3,9 +3,19 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const { queryAi } = require("./routes/aiHandler");
+const { getTasks, createTask } = require("./routes/taskHandler");
+
+const verifyUser = require("./middleware/Authorize");
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(",")
+    : [],
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
@@ -17,10 +27,16 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Mongoose connection error!"));
 db.once("open", () => console.log("Mongoose connected!"));
 
+app.use(verifyUser);
 
 app.get("/", (req, res, next) => {
-  res.status(200).send("Default route working.")
+  res.status(200).send("Default route working.");
 });
+
+app.post("/query", queryAi);
+
+app.get("/task", getTasks);
+app.post("/task", createTask);
 
 app.get("*", (req, res, next) =>
   res.status(404).send(`Resource not found :'(`)
