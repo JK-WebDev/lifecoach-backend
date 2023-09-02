@@ -11,15 +11,15 @@ taskHandler.getTasks = function(req, res, next) {
 };
 
 taskHandler.createTask = async function (req, res, next) {
-    const { title, isCompleted, notes, owner } = req.body;
+  const { title, isCompleted, notes } = req.body;
 
-    Task.findOneAndUpdate(
-      { title: title },
-      { $set: { isCompleted: isCompleted, notes: notes, owner: owner } },
-      { upsert: true, new: true }
-    )
-      .then((doc) => res.status(201).send(doc))
-      .catch((err) => next(err));
-  };
+  Task.findOneAndUpdate(
+    { title: title },
+    { $set: { isCompleted: isCompleted, notes: notes, owner: req.user.email } },
+    { upsert: true, new: true }
+  )
+    .then((doc) => res.status(201).send(doc))
+    .catch((err) => next(err));
+};
 
 module.exports = taskHandler;
