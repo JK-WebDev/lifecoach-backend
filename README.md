@@ -1,6 +1,6 @@
 # Lifecoach - Backend
 
-Version 1.3.0
+Version 1.4.0
 
 ## Team Members
 
@@ -28,6 +28,7 @@ Uncle Jimmy’s Life Coaching. Get life advice from your AI-powered Uncle Jimmy.
 
 ## Change Log
 
+- 1.4.0 - Add sorting to get /task route
 - 1.3.0 - Add Update and Delete tasks route, consolidates update and create route(s)
 - 1.2.0 - Adds "get all tasks" for auth user, and create task route
 - 1.1.0 - Adds OpenAI query route and initial Auth0 middleware
@@ -54,7 +55,7 @@ Estimate of time needed to complete: 2
 
 Start time: 12
 
-Finish time: 
+Finish time:
 
-Actual time needed to complete: 
+Actual time needed to complete:
 ```
