@@ -1,6 +1,6 @@
 {
   "name": "lifecoach-backend",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "AI Lifecoach Version 1.2.0",
   "main": "server.js",
   "scripts": {
